@@ -11,12 +11,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const banner = document.querySelector(".banner");
   const year = document.querySelector(".year");
 
-  // const API_BASE_URL = "http://localhost:3000/api"; // Node.js server URL
-  const API_BASE_URL = "/.netlify/functions/api"; // Use Netlify's relative path for serverless functions
+  const API_BASE_URL = "http://localhost:3000/api"; // Node.js server URL
+//   const API_BASE_URL = "/.netlify/functions/api"; // Use Netlify's relative path for serverless functions
 // const API_BASE_URL = "/.netlify/functions/api"; // Already correct
 
-// Example fetch:
-const url = `${API_BASE_URL}/genres?api_key=${apiKey}`; /
+// // Example fetch:
+// const url = `${API_BASE_URL}/genres?api_key=${apiKey}`; 
   const apiKey = "your_api_key"; // Replace with your actual API key
   const itemsPerPage = 5;
   let allGenres = [];
