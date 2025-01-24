@@ -6,9 +6,3 @@
   from = "/*"
   to = "/index.html"
   status = 200
-
-[[plugins]]
-  package = "@netlify/plugin-functions-core"
-
-[functions]
-  directory = "netlify/functions"  # Add this line to ensure the correct directory is used
