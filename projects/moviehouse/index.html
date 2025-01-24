@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MovieHouse</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <!-- Banner Section -->
+      <div class="banner">
+        <div class="content">
+          <h1 class="title">MovieHouse</h1>
+          <div class="display-movie">
+            <h2 class="movie-name" aria-live="polite">Loading...</h2>
+            <p class="description" aria-live="polite">
+              Fetching movie details...
+            </p>
+            <p class="genres" aria-live="polite">Genres: Loading...</p>
+            <p class="release-date"></p>
+            <p class="rating"></p>
+          </div>
+          <div class="btn-group">
+            <button aria-label="Play Movie" class="btn">Play</button>
+            <button aria-label="Add to Watchlist" class="btn">Watchlist</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Movies Section -->
+      <div class="movies">
+        <!-- Movie Categories -->
+        <section id="originals" class="movie">
+          <h2>Netflix Originals</h2>
+          <div class="content">Loading...</div>
+        </section>
+
+        <section id="trending" class="movie">
+          <h2>Trending Now</h2>
+          <div class="content">Loading...</div>
+        </section>
+
+        <section id="tv-shows" class="movie">
+          <h2>Popular TV Shows</h2>
+          <div class="content">Loading...</div>
+        </section>
+
+        <section id="movies-category" class="movie">
+          <h2>Movies</h2>
+          <div class="content">Loading...</div>
+        </section>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <h3>Developed by: Ashworth</h3>
+      <p class="copyright">
+        &copy; <span class="year"></span> MovieHouse. All Rights Reserved.
+      </p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
