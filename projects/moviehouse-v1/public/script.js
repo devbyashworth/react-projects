@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // const API_BASE_URL = "http://localhost:3000/api"; // Node.js server URL
   const API_BASE_URL = "/.netlify/functions"; // Netlify serverless functions base URL
+  // const API_BASE_URL = "/.netlify/functions"; // Use Netlify's relative path for serverless functions
 
 
   // const apiKey = "your_api_key"; // Replace with your actual API key
@@ -29,19 +30,52 @@ document.addEventListener("DOMContentLoaded", () => {
   year.textContent = new Date().getFullYear();
 
   // Fetch Data Utility
+  // const getMoviesData = async (url) => {
+  //   try {
+  //     console.log(`Fetching data from: ${url}`);
+  //     const response = await fetch(url);
+  //     if (!response.ok) throw new Error("Network error");
+  //     const data = await response.json();
+  //     console.log("Fetched data:", data);
+  //     return data;
+  //   } catch (error) {
+  //     console.error("Error fetching data:", error);
+  //     return null;
+  //   }
+  // };
+
+
+  // document.addEventListener("DOMContentLoaded", () => {
+
   const getMoviesData = async (url) => {
     try {
-      console.log(`Fetching data from: ${url}`);
       const response = await fetch(url);
       if (!response.ok) throw new Error("Network error");
       const data = await response.json();
-      console.log("Fetched data:", data);
       return data;
     } catch (error) {
       console.error("Error fetching data:", error);
       return null;
     }
   };
+
+  const updateBanner = async () => {
+    try {
+      const data = await getMoviesData(`${API_BASE_URL}/getTrending`);
+      if (!data || !data.results.length) throw new Error("No trending data");
+
+      // Update the banner with the fetched data
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  // Initial setup
+  //   (async () => {
+  //     await updateBanner();
+  //   })();
+  // });
+
 
   // Fetch Genres Once
   const fetchGenres = async () => {
@@ -53,37 +87,37 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   // Update Banner
-  const updateBanner = async () => {
-    try {
-      // const data = await getMoviesData(
-      //   `${API_BASE_URL}/trending?api_key=${apiKey}`
-      // );
-      const data = await getMoviesData(`${API_BASE_URL}/getTrending`);
-      if (!data || !data.results.length) throw new Error("No trending data");
+  // const updateBanner = async () => {
+  //   try {
+  //     // const data = await getMoviesData(
+  //     //   `${API_BASE_URL}/trending?api_key=${apiKey}`
+  //     // );
+  //     const data = await getMoviesData(`${API_BASE_URL}/getTrending`);
+  //     if (!data || !data.results.length) throw new Error("No trending data");
 
-      const randomMovie =
-        data.results[Math.floor(Math.random() * data.results.length)];
-      banner.style.backgroundImage = `url(https://image.tmdb.org/t/p/w1280${randomMovie.backdrop_path || ""
-        })`;
-      movieName.textContent =
-        randomMovie.title || randomMovie.name || "Untitled";
-      description.textContent =
-        truncate(randomMovie.overview, 250) || "No description available";
-      releaseDate.textContent = `Release Date: ${randomMovie.release_date || "N/A"
-        }`;
-      rating.textContent = `Rating: ${randomMovie.vote_average || "N/A"}`;
-      genre.textContent = `Genres: ${randomMovie.genre_ids
-        .map((id) => allGenres.find((g) => g.id === id)?.name)
-        .filter(Boolean)
-        .join(", ") || "Unknown"
-        }`;
-    } catch (error) {
-      console.error(error);
-      banner.style.backgroundImage = "url('fallback-banner.jpg')";
-      movieName.textContent = "No data available";
-      description.textContent = "Try again later.";
-    }
-  };
+  //     const randomMovie =
+  //       data.results[Math.floor(Math.random() * data.results.length)];
+  //     banner.style.backgroundImage = `url(https://image.tmdb.org/t/p/w1280${randomMovie.backdrop_path || ""
+  //       })`;
+  //     movieName.textContent =
+  //       randomMovie.title || randomMovie.name || "Untitled";
+  //     description.textContent =
+  //       truncate(randomMovie.overview, 250) || "No description available";
+  //     releaseDate.textContent = `Release Date: ${randomMovie.release_date || "N/A"
+  //       }`;
+  //     rating.textContent = `Rating: ${randomMovie.vote_average || "N/A"}`;
+  //     genre.textContent = `Genres: ${randomMovie.genre_ids
+  //       .map((id) => allGenres.find((g) => g.id === id)?.name)
+  //       .filter(Boolean)
+  //       .join(", ") || "Unknown"
+  //       }`;
+  //   } catch (error) {
+  //     console.error(error);
+  //     banner.style.backgroundImage = "url('fallback-banner.jpg')";
+  //     movieName.textContent = "No data available";
+  //     description.textContent = "Try again later.";
+  //   }
+  // };
 
   // Display Movies
   const displayMovies = async (endpoint, container) => {
