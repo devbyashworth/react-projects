@@ -55,10 +55,10 @@ document.addEventListener("DOMContentLoaded", () => {
   // Update Banner
   const updateBanner = async () => {
     try {
-      // const data = await getMoviesData(
-      //   `${API_BASE_URL}/trending?api_key=${apiKey}`
-      // );
-      const data = await getMoviesData(`${API_BASE_URL}/getTrending`);
+      const data = await getMoviesData(
+        `${API_BASE_URL}/trending?api_key=${apiKey}`
+      );
+      // const data = await getMoviesData(`${API_BASE_URL}/getTrending`);
       if (!data || !data.results.length) throw new Error("No trending data");
 
       const randomMovie =
@@ -73,9 +73,9 @@ document.addEventListener("DOMContentLoaded", () => {
         }`;
       rating.textContent = `Rating: ${randomMovie.vote_average || "N/A"}`;
       genre.textContent = `Genres: ${randomMovie.genre_ids
-          .map((id) => allGenres.find((g) => g.id === id)?.name)
-          .filter(Boolean)
-          .join(", ") || "Unknown"
+        .map((id) => allGenres.find((g) => g.id === id)?.name)
+        .filter(Boolean)
+        .join(", ") || "Unknown"
         }`;
     } catch (error) {
       console.error(error);
