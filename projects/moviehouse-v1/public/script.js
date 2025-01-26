@@ -55,10 +55,10 @@ document.addEventListener("DOMContentLoaded", () => {
   // Update Banner
   const updateBanner = async () => {
     try {
-      const data = await getMoviesData(
-        `${API_BASE_URL}/trending?api_key=${apiKey}`
-      );
-      // const data = await getMoviesData(`${API_BASE_URL}/getTrending`);
+      // const data = await getMoviesData(
+      //   `${API_BASE_URL}/trending?api_key=${apiKey}`
+      // );
+      const data = await getMoviesData(`${API_BASE_URL}/getTrending`);
       if (!data || !data.results.length) throw new Error("No trending data");
 
       const randomMovie =
