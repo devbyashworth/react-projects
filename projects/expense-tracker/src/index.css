@@ -1,0 +1,253 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+/* body {
+  font-family: "Poppins", sans-serif;
+  background-color: #f4f4f9;
+  background-color: #1b1b1b;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  } */
+
+/* Global styles */
+body {
+  margin: 0;
+  padding: 0;
+  color: #333;
+  display: flex;
+  min-width: 320px;
+  min-height: 100vh;
+  place-items: center;
+  background-color: #f9f9f9;
+  font-family: "Poppins", sans-serif;
+}
+
+.container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+/* Header */
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #4caf50;
+}
+
+.container .content {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+/* Form styles */
+.form-container {
+  width: 400px;
+  padding: 1rem;
+  /* margin: 0 auto; */
+  border: 1px solid #ddd;
+  margin-bottom: 30px;
+  border-radius: 4px;
+}
+
+.expenses-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-between;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-input {
+  flex: 1 1 calc(50% - 10px);
+  display: flex;
+  align-items: center;
+  /* flex-direction: column; */
+}
+
+.form-input label {
+  width: 120px;
+  padding: 8px 0;
+  text-align: left;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"],
+select {
+  width: 250px;
+  outline: none;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 4px;
+  margin-bottom: 5px;
+  border: 1px solid #ddd;
+  transition: all 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+input[type="date"]:focus,
+select:focus {
+  border-color: #4caf50;
+}
+
+input[type="radio"] {
+  margin-right: 8px;
+}
+
+.form-button {
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 4px;
+  width: 150px;
+  /* width: 100%; */
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.form-button:hover {
+  background-color: #45a049;
+}
+
+/* Expenses Chart */
+.expenses-chart {
+  width: 400px;
+  height: 310px;
+  padding: 0.8rem;
+  margin: 0 auto;
+  /* border: 1px solid #ddd; */
+  margin-bottom: 30px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* Expenses List */
+.expenses-list {
+  margin-top: 20px;
+}
+
+.expenses-content {
+  border-top: 2px solid #4caf50;
+  padding-top: 20px;
+}
+
+.expense-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.expense-header h3 {
+  color: #4caf50;
+}
+
+.expense-header .right-column {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.filtering {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+}
+
+.filter {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+/* Expense Table */
+.content-header,
+.content-body,
+.content-footer {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr 1fr;
+  gap: 10px;
+  padding: 10px 0;
+  font-size: 16px;
+}
+
+.content-header {
+  font-weight: bold;
+  border-bottom: 2px solid #4caf50;
+  padding-bottom: 10px;
+  text-align: left;
+}
+
+.content-body:nth-child(even) {
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+  background-color: #ddd;
+}
+
+.sub-body {
+  text-align: left;
+  color: #555;
+}
+
+.content-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  font-weight: bold;
+  margin-top: 20px;
+  padding-top: 10px;
+  border-top: 2px solid #4caf50;
+}
+
+/* Buttons */
+.btn {
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #45a049;
+}
+
+.search-box {
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-left: 10px;
+}
