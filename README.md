@@ -75,8 +75,9 @@ Some of the highlighted projects in this repository:
 
 ## 📸 Connect & Share
 
-📸 Follow my dev journey and project updates on [Instagram @devbyashworth](https://instagram.com/devbyashworth)
+📸 Follow my dev journey and project updates on [Instagram @devbyashworth](https://instagram.com/devbyashworth)  
 🌐 Portfolio: [https://devbyashworth.vercel.app](https://devbyashworth.vercel.app)
+
 
 ---
 
