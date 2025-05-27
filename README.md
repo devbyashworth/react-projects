@@ -2,7 +2,7 @@
 
 Welcome to the **React Projects** repository by [@devbyashworth](https://github.com/devbyashworth) — a collection of modern, responsive, and well-structured frontend projects built using **React.js**, **Tailwind CSS**, **Framer Motion**, and more.
 
----
+
 
 ## 📁 Project Structure
 
@@ -20,7 +20,7 @@ react-projects/
 
 > Each project contains its own `README.md`, `package.json`, and configuration files.
 
----
+
 
 ## 🛠️ Tech Stack
 
@@ -32,31 +32,37 @@ Most projects are built using:
 - 🌐 REST APIs or third-party integrations
 - ☁️ Firebase / Sanity / Netlify / Vercel (depending on the project)
 
----
+
 
 ## 🚀 Getting Started
+
+> ⚠️ **Note:** The `node_modules` folder is not included in the repository to reduce size.  
+> You **must install dependencies** before running any project.
 
 To run any project locally:
 
 1. **Clone the repo:**
-```bash
-git clone https://github.com/devbyashworth/react-projects.git
-cd react-projects/project-folder-name
-```
+
+   ```bash
+   git clone https://github.com/devbyashworth/react-projects.git
+   cd react-projects/project-folder-name
+   ```
 
 2. **Install dependencies:**
- ```bash
- npm install
-```
+
+   ```bash
+   npm install
+   ```
 
 3. **Start the development server:**
-```bash
-npm run dev
-```
+
+   ```bash
+   npm run dev
+   ```
 
    > Or use `npm start` if the project was created with Create React App.
 
----
+
 
 ## 📦 Featured Projects
 
@@ -71,7 +77,7 @@ Some of the highlighted projects in this repository:
 
 > More projects coming soon!
 
----
+
 
 ## 📸 Connect & Share
 
@@ -79,13 +85,11 @@ Some of the highlighted projects in this repository:
 🌐 Portfolio: [https://devbyashworth.vercel.app](https://devbyashworth.vercel.app)
 
 
----
 
 ## 🤝 Contributions
 
 This is a personal learning archive, but feel free to fork, explore, and contribute. Pull requests are welcome for improvements and bug fixes.
 
----
 
 ## 📄 License
 
