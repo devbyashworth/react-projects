@@ -1,0 +1,96 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  color: rgb(0 0 0 / 50%);
+  background-color: #1a1a1a;
+  font-family: "Poppins", "Montserrat", sans-serif;
+}
+
+.container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+
+.main {
+  position: relative;
+  height: 100%;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 80px;
+  transition: margin-left 0.3s ease;
+}
+
+.sidebar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  height: 100%;
+  overflow: hidden;
+  background: rgb(0 0 0 / 40%);
+  transition: width 0.3s ease;
+}
+
+.sidebar button {
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  background: transparent;
+}
+
+.inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+}
+
+.menu {
+  display: grid;
+  padding: 0 10px;
+}
+
+.menu button {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  height: 56px;
+  opacity: 0.9;
+  line-height: 1;
+  padding: 0 10px;
+  color: #b8c2d8;
+  border-radius: 8px;
+  text-transform: capitalize;
+}
+
+.menu button:hover {
+  color: #7c7c7c;
+}
+
+.handle {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 8px;
+  z-index: 100;
+  user-select: none;
+  transition: 0.3s;
+}
+
+.handle:hover,
+.handle:active {
+  cursor: col-resize;
+  background: rgb(255 255 255 / 6%);
+}
