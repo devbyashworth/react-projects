@@ -1,0 +1,115 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  margin: 1rem 0;
+  overflow: hidden;
+  color: #fefefe;
+  background-color: #1f1f1f;
+  font-family: "Poppins", "Montserrat", sans-serif;
+}
+
+.bg {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: grid;
+  place-items: center;
+  background-size: cover;
+  transition: background 0.5s;
+}
+
+.bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  filter: grayscale(5);
+  backdrop-filter: blur(5px);
+  background: rgb(0 0 0 /80%);
+}
+
+.accordion {
+  display: flex;
+  gap: 12px;
+  cursor: pointer;
+}
+
+.accordion-item {
+  position: relative;
+  width: 64px;
+  height: 500px;
+  display: flex;
+  align-items: flex-end;
+  border-radius: 36px;
+  overflow: hidden;
+  /* background-color: #fefefe; */
+  opacity: 0.25;
+  transition: 0.5s;
+}
+
+.accordion-item:hover {
+  opacity: 0.5;
+}
+
+.accordion-item.active {
+  opacity: 1;
+  width: 800px;
+}
+
+.accordion-item.active .content {
+  opacity: 1;
+  visibility: visible;
+}
+
+.accordion-item img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.accordion-item .content {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 1;
+  opacity: 0;
+  width: 100%;
+  visibility: hidden;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 100px 20px 25px 20px;
+  background: linear-gradient(to bottom, rgb(0 0 0 /0%), rgb(0 0 0 / 80%));
+  transition: 0.25s;
+}
+
+.accordion-item .icon {
+  width: 50px;
+  height: 50px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: rgb(255 255 255 / 20%);
+}
+
+.accordion-item h2 {
+  font-size: 24px;
+  font-weight: 400;
+  color: rgb(255 255 255 / 96%);
+}
+
+.accordion-item p {
+  opacity: 0.5;
+}
