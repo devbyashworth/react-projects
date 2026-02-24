@@ -1,0 +1,249 @@
+:root {
+  --color-bg: #0f0f14;
+  --color-card: #ffffff;
+  --color-muted: #8e8e98;
+  --color-primary: #7b00f1;
+  --color-border: #e6e6eb;
+  --color-input-bg: #f6f4fb;
+  --color-weak: #e24c71;
+  --color-medium: #f39845;
+  --color-strong: #57c558;
+}
+
+/* Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at top left, #1d1b29, var(--color-bg));
+  font-family: "Inter", sans-serif;
+  color: #1a1a1a;
+}
+
+/* DevByAshworth Signature Background */
+.dev-bg {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+  background: radial-gradient(circle at top left, #1a132f, #0f0f14 60%);
+}
+
+/* Floating Code */
+.dev-code {
+  position: absolute;
+  bottom: -40px;
+  font-family: "Fira Code", monospace;
+  color: rgba(123, 0, 241, 0.12);
+  white-space: nowrap;
+  animation: floatUp linear forwards;
+  text-shadow: 0 0 12px rgba(123, 0, 241, 0.25);
+  opacity: 0;
+}
+
+/* Animation */
+@keyframes floatUp {
+  0% {
+    transform: translateY(0px) translateX(0px);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 0.6;
+  }
+
+  50% {
+    transform: translateY(-50vh) translateX(20px);
+  }
+
+  100% {
+    transform: translateY(-110vh) translateX(-20px);
+    opacity: 0;
+  }
+}
+
+/* Make card sit above */
+.card {
+  position: relative;
+  z-index: 2;
+}
+
+.card {
+  position: relative;
+  z-index: 2;
+}
+
+/* Card */
+.card {
+  width: 420px;
+  max-width: 95%;
+  background: var(--color-card);
+  border-radius: 24px;
+  padding: 40px 32px;
+  box-shadow:
+    0 10px 40px rgba(0, 0, 0, 0.25),
+    0 2px 8px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  transition: 0.3s ease;
+}
+
+.card img {
+  width: 80px;
+  border-radius: 3px;
+  margin-bottom: 20px;
+}
+
+.card h2 {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.card h3 {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--color-muted);
+  margin-bottom: 28px;
+}
+
+/* Inputs */
+.textbox {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.textbox input {
+  width: 100%;
+  height: 52px;
+  padding: 18px 14px 6px;
+  border-radius: 12px;
+  border: 1px solid var(--color-border);
+  background: var(--color-input-bg);
+  font-size: 15px;
+  outline: none;
+  transition: 0.25s ease;
+}
+
+.textbox input:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(123, 0, 241, 0.15);
+}
+
+.textbox label {
+  position: absolute;
+  top: 50%;
+  left: 14px;
+  transform: translateY(-50%);
+  font-size: 14px;
+  color: var(--color-muted);
+  pointer-events: none;
+  transition: 0.25s ease;
+  background: transparent;
+}
+
+/* Floating label */
+.textbox input:focus + label,
+.textbox input:not(:placeholder-shown) + label {
+  top: 10px;
+  font-size: 11px;
+  color: var(--color-primary);
+}
+
+/* Strength Bars */
+.bars {
+  width: 100%;
+  height: 6px;
+  background: #eee;
+  border-radius: 999px;
+  overflow: hidden;
+  margin: 12px 0 6px;
+}
+
+.bars div {
+  height: 100%;
+  width: 0%;
+  transition: 0.4s ease;
+}
+
+.bars.weak div {
+  width: 33%;
+  background: var(--color-weak);
+}
+
+.bars.medium div {
+  width: 66%;
+  background: var(--color-medium);
+}
+
+.bars.strong div,
+.bars.very-strong div {
+  width: 100%;
+  background: var(--color-strong);
+}
+
+.strength {
+  font-size: 13px;
+  color: var(--color-muted);
+  text-align: left;
+  margin-bottom: 20px;
+  text-transform: capitalize;
+}
+
+/* Button */
+button {
+  width: 100%;
+  height: 52px;
+  border-radius: 12px;
+  border: none;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  background: var(--color-primary);
+  color: white;
+  transition: 0.25s ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(123, 0, 241, 0.4);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+/* Links */
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-top: 20px;
+}
+
+.card p {
+  font-size: 14px;
+  margin-top: 15px;
+  color: var(--color-muted);
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .card {
+    padding: 30px 20px;
+  }
+}
