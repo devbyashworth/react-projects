@@ -1,0 +1,106 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  place-items: center;
+  color: rgb(0 0 0 / 50%);
+  background-color: #1a1a1a;
+  background-image: url("./setup.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  font-family: "Poppins", "Montserrat", sans-serif;
+}
+
+.sidebar {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  bottom: 20px;
+  z-index: 2;
+  width: 56px;
+  border-radius: 8px;
+  background: rgb(0 0 0 / 25%);
+  backdrop-filter: blur(10px);
+  transition: width 0.45s;
+}
+
+.sidebar.open {
+  width: 190px;
+}
+
+.sidebar .inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 190px;
+  height: 100%;
+}
+
+.sidebar header {
+  display: flex;
+  align-items: center;
+  height: 64px;
+  padding: 0 6px;
+  border-top-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.sidebar-burger {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  color: #f9f9f9;
+  background: transparent;
+}
+
+.sidebar nav {
+  display: grid;
+  gap: 2px;
+  padding: 0 6px;
+}
+
+.sidebar nav > button {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  border: 0;
+  width: 44px;
+  height: 44px;
+  opacity: 0.7;
+  padding: 0 12px;
+  color: #f9f9f9;
+  border-radius: 8px;
+  background: transparent;
+}
+
+.sidebar nav button:hover {
+  opacity: 1;
+  background: rgb(0 0 0 / 30%);
+}
+
+.sidebar:not(.open) nav button:hover p {
+  opacity: 1;
+  padding: 4px 6px;
+  translate: 10px 0;
+  border-radius: 6px;
+  background: rgb(0 0 0 / 70%);
+}
+
+.sidebar header img,
+.sidebar nav button p {
+  opacity: 0;
+  transition: 0.25s;
+}
+
+.sidebar.open :is(nav button p, header img) {
+  opacity: 1;
+}
