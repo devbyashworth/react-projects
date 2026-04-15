@@ -1,0 +1,117 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  color: #59585d;
+  padding-top: 56px;
+  background: #ebebeb;
+}
+
+.sidebar {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  bottom: 20px;
+  width: 56px;
+  border-radius: 14px;
+  background: rgb(0 0 0 / 12%);
+  backdrop-filter: blur(10px);
+  transition: width 0.45s;
+}
+
+.sidebar button {
+  border: 0;
+  background: transparent;
+}
+
+.sidebar.open {
+  width: 190px;
+}
+
+.sidebar .inner {
+  position: absolute;
+  inset: 0;
+}
+
+.sidebar header {
+  display: flex;
+  align-items: center;
+  padding: 0 6px;
+  width: 56px;
+  height: 64px;
+}
+
+.sidebar-burger {
+  width: 4px;
+  height: 72px;
+  display: grid;
+  place-items: center;
+  color: #f9f9f9;
+}
+
+.sidebar nav {
+  flex: 1 1 auto;
+  display: grid;
+  padding: 0 6px;
+  gap: 2px;
+}
+
+.sidebar nav > button:hover {
+  opacity: 1;
+  background: rgb(255 255 255 / 6%);
+}
+
+.sidebar nav > button {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 44px;
+  height: 44px;
+  line-height: 1;
+  padding: 0 12px;
+  color: #f9f9f9;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+.sidebar:not(.open) nav > button:hover p::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -4px;
+  width: 8px;
+  height: 8px;
+  translate: 0 -50%;
+  transform: rotate(45deg);
+  border-radius: 1px;
+  background: inherit;
+}
+
+.sidebar header > img,
+.sidebar nav > button p {
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.25s;
+}
+
+.sidebar.open:is(nav button p, header > img) {
+  opacity: 1;
+}
+
+.sidebar.open nav > button {
+  width: 100%;
+}
+
+.sidebar:not(.open) nav > button:hover p {
+  position: relative;
+  opacity: 1;
+  padding: 8px 12px;
+  translate: 16px 0;
+  border-radius: 6px;
+  background: #121113;
+}
