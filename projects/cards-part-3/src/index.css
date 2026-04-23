@@ -1,0 +1,173 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Ubuntu&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  display: grid;
+  place-items: center;
+  color: #fefefe;
+  background-color: #1a1c22;
+  font-family: "Poppins", sans-serif;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  width: 75vw;
+  max-width: 650px;
+  padding: 24px 30px 24px 20px;
+  background: rgba(0 0 0 / 100%);
+  backdrop-filter: blur(30px);
+  border-radius: 24px;
+}
+
+.card img {
+  max-width: 280px;
+  width: 36vw;
+  height: 340px;
+  object-fit: cover;
+  margin-left: -60px;
+  margin-right: 30px;
+  border-radius: inherit;
+  box-shadow: 0 20px 40px rgba(0 0 0 / 16%);
+  transition: border-radius 0.3s;
+}
+
+.card h2 {
+  margin-top: 0;
+  margin-right: 30px;
+  margin-bottom: 10px;
+  font-size: 24px;
+}
+
+.card h3 {
+  opacity: 0.75;
+  font-size: 16px;
+  margin: 0 0 10px;
+}
+
+.card p {
+  opacity: 0.5;
+  font-size: 14px;
+  margin-bottom: 30px;
+}
+
+.socials {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.socials button {
+  position: relative;
+  border: 0;
+  padding: 0;
+  color: #f8f8f8;
+  background: transparent;
+  border-radius: 100%;
+  border: 1px #fefefe solid;
+}
+
+.socials button i {
+  position: relative;
+  z-index: 1;
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  font-size: 20px;
+}
+
+.socials button:hover {
+  color: #121212;
+  background: #cccccc;
+  border-color: #fefefe;
+}
+
+.editable-text {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.editable-text-value.is-editing ~ .editable-text-buttons {
+  opacity: 1;
+  visibility: visible;
+}
+
+.editable-text-buttons button {
+  border: 0;
+  opacity: 0.5;
+  color: inherit;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  background: transparent;
+}
+
+.editable-text:hover .editable-text-buttons {
+  opacity: 1;
+  visibility: visible;
+}
+
+.editable-text-buttons {
+  display: flex;
+  gap: 2px;
+  opacity: 0;
+  overflow: hidden;
+  transition: 0.3s;
+}
+
+.editable-text-buttons button:hover {
+  opacity: 0.8;
+}
+
+.editable-text-value {
+  outline: none;
+}
+
+@media screen and (width <= 600px) {
+  .card {
+    width: 100%;
+    margin: 0 40px;
+    text-align: center;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-bottom: 60px;
+    flex-direction: column;
+  }
+
+  .card h2 {
+    margin-right: 0;
+    font-size: 26px;
+  }
+
+  .card img {
+    width: 100%;
+    max-width: 1000px;
+    height: 250px;
+    margin: -100px 0 30px 0;
+  }
+
+  .card p {
+    max-width: 360px;
+  }
+
+  .socials {
+    justify-content: center;
+  }
+}
+
+@media screen and (width <= 440px) {
+  .card img {
+    width: 50vw;
+    height: 50vw;
+    border-radius: 50%;
+    margin: -140px 0 30px 0;
+  }
+}
