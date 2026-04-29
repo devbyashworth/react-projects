@@ -1,0 +1,164 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #0f1117;
+  font-family: "Poppins", sans-serif;
+}
+
+/* CENTER */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* CARD */
+.card {
+  --color-primary: #6663e6;
+
+  position: relative;
+  width: 700px;
+  height: 450px;
+  overflow: hidden;
+  background: #fff;
+  border-radius: 24px;
+}
+
+/* BACKGROUND */
+.card-bg {
+  position: absolute;
+  width: 900px;
+  height: 500px;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  transform: rotate(-45deg);
+  transform-origin: bottom left;
+  background: var(--color-primary);
+  transition: 0.8s;
+}
+
+.card-bg-2 {
+  left: auto;
+  right: 0;
+  opacity: 0;
+  transform-origin: bottom right;
+}
+
+/* STATE SWITCH */
+.card-bg-1.register {
+  transform: rotate(0deg);
+}
+
+.card-bg-2.register {
+  transform: rotate(45deg);
+  opacity: 1;
+}
+
+/* LOGO */
+.logo {
+  position: absolute;
+  top: 30px;
+  width: 120px;
+  z-index: 3;
+  opacity: 0;
+  transition: 0.4s;
+}
+
+.logo-1 {
+  left: 40px;
+}
+
+.logo-2 {
+  right: 40px;
+}
+
+.logo.show {
+  opacity: 1;
+}
+
+/* FORMS */
+.form {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form.login {
+  left: 0;
+}
+
+.form.register {
+  left: 50%;
+}
+
+/* FORM ANIMATION */
+.form form {
+  width: 80%;
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: 0.4s;
+}
+
+.form.register form {
+  transform: translateX(40px);
+}
+
+.form.active form {
+  opacity: 1;
+  transform: translateX(0);
+  transition: 0.5s 0.3s;
+}
+
+/* INPUTS */
+form h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+form input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 12px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+}
+
+form a {
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 10px;
+  display: block;
+}
+
+form button {
+  width: 100%;
+  padding: 12px;
+  background: var(--color-primary);
+  border: none;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+form p {
+  font-size: 13px;
+  color: #444;
+}
+
+form span {
+  color: var(--color-primary);
+  cursor: pointer;
+}
