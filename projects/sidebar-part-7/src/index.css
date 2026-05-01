@@ -1,0 +1,173 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  color: #59585d;
+  background-color: #121212;
+}
+
+/* DevByAshworth Signature Background */
+.dev-bg {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+  background: radial-gradient(circle at top left, #1a132f, #0f0f14 60%);
+}
+
+/* Floating Code */
+.dev-code {
+  position: absolute;
+  bottom: -40px;
+  font-family: "Fira Code", monospace;
+  color: rgba(123, 0, 241, 0.12);
+  white-space: nowrap;
+  animation: floatUp linear forwards;
+  text-shadow: 0 0 12px rgba(123, 0, 241, 0.25);
+  opacity: 0;
+}
+
+/* Animation */
+@keyframes floatUp {
+  0% {
+    transform: translateY(0px) translateX(0px);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 0.6;
+  }
+
+  50% {
+    transform: translateY(-50vh) translateX(20px);
+  }
+
+  100% {
+    transform: translateY(-110vh) translateX(-20px);
+    opacity: 0;
+  }
+}
+
+/* Sidebar */
+.sidebar {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  bottom: 20px;
+  width: 56px;
+  border-radius: 14px;
+  background: rgb(0 0 0 / 40%);
+  backdrop-filter: blur(12px);
+  transition: width 0.45s ease;
+  z-index: 5;
+  color: #f9f9f9;
+}
+
+.sidebar.open {
+  width: 190px;
+}
+
+.sidebar .inner {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar button {
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  color: inherit;
+}
+
+/* Header */
+.sidebar header {
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+  height: 64px;
+  gap: 8px;
+}
+
+.sidebar header img {
+  width: 80px;
+  height: 35px;
+  border-radius: 3px;
+  transition: 0.3s ease;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  min-width: 24px;
+}
+
+/* Nav */
+.sidebar nav {
+  flex: 1;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.sidebar header button,
+.sidebar nav > button {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 44px;
+  height: 44px;
+  padding: 0 12px;
+  border-radius: 8px;
+  transition: 0.3s ease;
+}
+
+.sidebar.open nav > button {
+  width: 100%;
+}
+
+.sidebar nav > button:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* Hide text when closed */
+.sidebar header img,
+.sidebar nav button p {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+/* FIXED INVALID SELECTOR */
+.sidebar.open header img,
+.sidebar.open nav button p {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Tooltip effect when collapsed */
+.sidebar:not(.open) nav > button:hover p {
+  position: absolute;
+  left: 70px;
+  opacity: 1;
+  padding: 6px 12px;
+  border-radius: 6px;
+  background: #1e1e1e;
+  white-space: nowrap;
+}
+
+.sidebar nav button:last-child {
+  position: fixed;
+  bottom: 10px;
+}
