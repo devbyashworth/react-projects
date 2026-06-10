@@ -1,0 +1,117 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  --color-primary: #5c48cf;
+  --gradient: linear-gradient(to right, var(--color-primary), #485acf);
+
+  color: white;
+  background: #202022;
+  font-family: "Poppins", sans-serif;
+}
+
+/* SIDEBAR */
+aside {
+  position: fixed;
+  top: 24px;
+  left: 24px;
+  bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 260px;
+  padding: 0 16px;
+  border-radius: 16px;
+  backdrop-filter: blur(30px);
+  background: rgb(0 0 0 / 19%);
+}
+
+/* HEADER */
+header {
+  display: flex;
+  align-items: center;
+  height: 72px;
+  padding-top: 10px;
+  border-bottom: 1px solid rgb(255 255 255 / 8%);
+}
+
+header img {
+  height: 24px;
+  margin-left: 16px;
+}
+
+/* BUTTONS */
+aside button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  height: 50px;
+  border: none;
+  padding: 0 16px;
+  border-radius: 6px;
+  background: transparent;
+  color: rgb(255 255 255 / 95%);
+  transition: 0.3s;
+}
+
+aside button.active {
+  background: rgb(0 0 0 / 18%);
+}
+
+aside button:not(.active):hover {
+  background: rgb(0 0 0 / 8%);
+}
+
+/* ICONS */
+aside ion-icon {
+  width: 20px;
+  font-size: 19px;
+}
+
+/* CHEVRON ROTATION */
+aside button ion-icon:last-child {
+  margin-left: auto;
+  transition: 0.3s;
+}
+
+aside button.open ion-icon:last-child {
+  transform: rotate(-180deg);
+}
+
+/* LIST */
+aside ul {
+  list-style: none;
+}
+
+/* SUBMENU */
+.sub-menu {
+  overflow: hidden;
+  transition: height 0.4s ease;
+}
+
+.sub-menu ul {
+  padding-left: 0;
+}
+
+.sub-menu button {
+  padding-left: 40px;
+}
+
+.sub-menu button::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 22px;
+  transform: translateY(-50%);
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: rgb(255 255 255 / 35%);
+}
