@@ -1,0 +1,202 @@
+:root {
+  --color-dark: #496cf5;
+  --color-primary: #6387ff;
+  --color-muted: hsl(226, 12%, 51%);
+}
+
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* BODY */
+body {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  place-items: center;
+  background: #1b1921;
+  font-family: "Poppins", sans-serif;
+}
+
+/* ================= MAIN CARD ================= */
+
+.card {
+  width: 700px;
+  height: 420px;
+  display: flex;
+  border-radius: 16px;
+  background: #242b43;
+  box-shadow: 0 20px 80px rgba(0 0 0 / 20%);
+  overflow: hidden;
+}
+
+/* ================= NAV ================= */
+
+.card-nav {
+  position: relative;
+  width: 100px;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-nav li {
+  flex: 1;
+  display: grid;
+  place-items: center;
+}
+
+.card-nav img {
+  width: 60px;
+  margin-top: 10px;
+  border-radius: 3px;
+}
+
+.card-nav button {
+  border: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  color: #aaa;
+  background: transparent;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.card-nav button i {
+  font-size: 20px;
+  transition: 0.3s;
+}
+
+.card-nav button.active {
+  color: var(--color-primary);
+}
+
+.card-nav button:not(.active):hover i {
+  transform: scale(1.1);
+}
+
+/* ACTIVE BAR */
+
+.card-nav .active-bar {
+  position: absolute;
+  left: 0;
+  top: 80px;
+  width: 5px;
+  height: calc((80% - 80px) / 2);
+  background: var(--color-dark);
+  border-radius: 6px;
+  transition: transform 0.4s ease;
+}
+
+/* ================= HERO ================= */
+
+.card-hero {
+  position: relative;
+  width: 260px;
+  background: linear-gradient(135deg, #5a7cff, #496cf5);
+  overflow: hidden;
+}
+
+.card-hero-inner {
+  position: absolute;
+  width: 100%;
+  height: 200%;
+  transition: 0.5s ease-in-out;
+}
+
+.card-hero-content {
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 24px;
+}
+
+.card-hero h2 {
+  color: #fff;
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+
+.card-hero h3 {
+  color: #fff;
+  opacity: 0.8;
+  font-size: 13px;
+}
+
+/* ================= FORM ================= */
+
+.card-form {
+  flex: 1;
+  min-width: 0; /* ✅ prevents flex overflow */
+  position: relative;
+  padding: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* SLIDING CONTAINER */
+.forms {
+  position: absolute;
+  width: 100%;
+  height: 200%;
+  transition: 0.5s ease-in-out;
+}
+
+/* EACH FORM */
+.form-section {
+  height: 50%;
+  width: 100%;
+  max-width: 320px; /* ✅ prevents stretching */
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 16px;
+}
+
+/* INPUTS */
+.form-section input {
+  width: 100%;
+  height: 44px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  padding: 0 14px;
+  font-size: 14px;
+  outline: none;
+  background: #f5f6fa;
+  transition: 0.25s;
+}
+
+/* INPUT FOCUS */
+.form-section input:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 2px rgba(99, 135, 255, 0.15);
+}
+
+/* BUTTON */
+.form-section button {
+  width: 100%;
+  height: 44px;
+  border: none;
+  border-radius: 10px;
+  background: var(--color-primary);
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.form-section button:hover {
+  background: var(--color-dark);
+}
