@@ -1,0 +1,370 @@
+/* =========================
+   RESET
+========================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  min-height: 100%;
+  overflow-x: hidden;
+}
+
+/* =========================
+   BODY
+========================= */
+
+body {
+  position: relative;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  min-height: 100vh;
+  background: #1b1921;
+  font-family: "Poppins", sans-serif;
+}
+
+/* =========================
+   BACKGROUND CANVAS
+========================= */
+
+.canvas {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+/* =========================
+   CARD
+========================= */
+
+.card {
+  position: relative;
+  z-index: 2;
+
+  width: min(460px, 100%);
+  padding: 32px 40px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  border-radius: 28px;
+
+  border: 1px solid rgb(40 140 255 / 0.16);
+
+  backdrop-filter: blur(28px) saturate(160%);
+
+  background: radial-gradient(
+    ellipse at top,
+    rgb(37 45 76 / 0.52),
+    rgb(2 4 18 / 0.44)
+  );
+
+  box-shadow:
+    inset 0 1px 0 rgb(80 170 255 / 0.09),
+    0 48px 96px -24px rgb(0 0 0 / 0.8);
+}
+
+/* =========================
+   LOGO
+========================= */
+
+.card > img {
+  width: 100px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+}
+
+/* =========================
+   HEADINGS
+========================= */
+
+.card h2 {
+  margin-bottom: 10px;
+
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+
+  background: linear-gradient(160deg, #ffffff 20%, #85c8ff);
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.card h3 {
+  margin-bottom: 35px;
+
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+
+  color: rgb(80 160 255 / 0.45);
+}
+
+/* =========================
+   FORM
+========================= */
+
+.form {
+  width: 100%;
+
+  display: grid;
+  gap: 16px;
+
+  margin-bottom: 20px;
+}
+
+/* =========================
+   SOCIAL BUTTONS
+========================= */
+
+.socials {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.sso-btn {
+  height: 46px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  border-radius: 14px;
+  border: 1px solid rgb(30 130 255 / 0.12);
+
+  background: rgb(20 100 255 / 0.05);
+
+  color: rgb(255 255 255 / 0.7);
+
+  font-size: 14px;
+  font-weight: 500;
+
+  cursor: pointer;
+
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.sso-btn:hover {
+  color: rgb(255 255 255 / 0.95);
+
+  background: rgb(20 100 255 / 0.1);
+
+  border-color: rgb(30 130 255 / 0.22);
+
+  transform: translateY(-2px);
+}
+
+.sso-btn:active {
+  transform: scale(0.98);
+}
+
+.sso-btn img {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+}
+
+/* =========================
+   DIVIDER
+========================= */
+
+.or {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  font-size: 12px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+
+  color: rgb(80 160 255 / 0.45);
+}
+
+.or::before,
+.or::after {
+  content: "";
+
+  flex: 1;
+  height: 1px;
+
+  background: rgb(40 140 255 / 0.18);
+}
+
+/* =========================
+   INPUTS
+========================= */
+
+.card :is(input, button) {
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.textbox {
+  position: relative;
+}
+
+.textbox input {
+  width: 100%;
+  height: 52px;
+
+  padding: 18px 16px 0;
+
+  border-radius: 14px;
+  border: 1px solid rgb(30 130 255 / 0.12);
+
+  outline: none;
+
+  background: rgb(20 100 255 / 0.05);
+
+  color: #ffffff;
+
+  font-size: 15px;
+
+  box-shadow: 0 0 0 2px transparent;
+}
+
+.textbox input::placeholder {
+  color: transparent;
+}
+
+.textbox input:focus {
+  border-color: #6387ff;
+
+  box-shadow: 0 0 0 4px rgb(99 135 255 / 0.15);
+}
+
+.textbox label {
+  position: absolute;
+
+  top: 50%;
+  left: 16px;
+
+  transform: translateY(-50%);
+  transform-origin: left center;
+
+  pointer-events: none;
+
+  font-size: 15px;
+
+  color: rgb(80 160 255 / 0.42);
+
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.textbox input:focus + label,
+.textbox input:valid + label {
+  transform: translateY(-22px) scale(0.82);
+
+  color: #85c8ff;
+}
+
+/* =========================
+   LOGIN BUTTON
+========================= */
+
+.btn {
+  width: 100%;
+  height: 50px;
+
+  border: none;
+  border-radius: 14px;
+
+  background: linear-gradient(135deg, #6387ff, #4d6fff);
+
+  color: #ffffff;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+
+  cursor: pointer;
+
+  box-shadow: 0 10px 30px rgb(99 135 255 / 0.3);
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+
+  background: linear-gradient(135deg, #7394ff, #5d7dff);
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+/* =========================
+   LINKS
+========================= */
+
+a {
+  text-decoration: none;
+
+  color: rgb(80 160 255 / 0.55);
+
+  font-size: 14px;
+
+  transition: 0.2s ease;
+}
+
+a:hover {
+  color: #8db8ff;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+  margin-top: 10px;
+
+  font-size: 14px;
+
+  color: rgb(80 160 255 / 0.45);
+}
+
+.footer a {
+  margin-left: 4px;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  color: #6387ff;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 480px) {
+  .card {
+    padding: 28px 22px;
+    border-radius: 24px;
+  }
+
+  .card h2 {
+    font-size: 24px;
+  }
+
+  .card h3 {
+    font-size: 14px;
+    letter-spacing: 0.08em;
+  }
+
+  .socials {
+    grid-template-columns: 1fr;
+  }
+}
