@@ -1,0 +1,269 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+:root {
+  --enter-delay: 0.2s;
+  --bubble-duration: 1200ms;
+  --bubble-size: 250vmax;
+  --accent: #8f44fd;
+  --text-dark: #171717;
+  --surface: #ffffff;
+  --shadow: 0 4px 20px rgb(0 0 0 / 8%);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  min-width: 320px;
+  min-height: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  font-family: "Poppins", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+button,
+a {
+  font: inherit;
+}
+
+a {
+  color: inherit;
+}
+
+.page {
+  min-height: 100vh;
+  transition: background-color 0.2s ease;
+}
+
+.nav {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 100;
+  min-height: 100px;
+  padding: 20px clamp(20px, 5vw, 60px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  background: var(--surface);
+  color: var(--text-dark);
+  box-shadow: var(--shadow);
+}
+
+.nav__title {
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+  font-weight: 700;
+  animation: appear 250ms var(--enter-delay) both;
+}
+
+.nav__list {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: clamp(12px, 2.5vw, 32px);
+  list-style: none;
+  animation: appear 250ms calc(var(--enter-delay) * 2) both;
+}
+
+.nav__link {
+  position: relative;
+  display: inline-block;
+  padding: 8px 0;
+  color: #555;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: color 180ms ease;
+}
+
+.nav__link:hover,
+.nav__link.active {
+  color: var(--accent);
+}
+
+.nav__link::after {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  background: currentColor;
+  content: "";
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 180ms ease;
+}
+
+.nav__link:hover::after,
+.nav__link.active::after {
+  transform: scaleX(1);
+}
+
+.nav__link:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 5px;
+  border-radius: 2px;
+}
+
+.page__content {
+  min-height: 100vh;
+  padding: 160px 24px 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  text-align: center;
+}
+
+.page__content h2 {
+  font-size: clamp(2rem, 6vw, 4rem);
+  line-height: 1.15;
+}
+
+.page__content p {
+  max-width: 600px;
+  line-height: 1.7;
+  opacity: 0.8;
+}
+
+/* Full-screen bubble transition */
+
+.bubbles {
+  --size: var(--bubble-size);
+  --duration: var(--bubble-duration);
+  pointer-events: none;
+}
+
+.bubbles__first,
+.bubbles__second {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  z-index: 9999;
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  translate: -50% 100%;
+  pointer-events: none;
+  will-change: translate, border-radius;
+}
+
+.bubbles__first {
+  background: var(--accent);
+}
+
+.bubbles__second {
+  background: #ffffff;
+}
+
+/* The initial covering phase */
+
+.bubbles--covering .bubbles__first {
+  animation: bubble-move var(--duration) ease-in-out 1 both;
+}
+
+.bubbles--covering .bubbles__second {
+  animation: bubble-second-move var(--duration) ease-in-out 1 both;
+}
+
+/* Brief hold while the destination page appears */
+
+.bubbles--holding .bubbles__second {
+  animation: hold var(--enter-delay) ease-in-out 1 both;
+}
+
+@keyframes bubble-move {
+  20% {
+    border-radius: 50%;
+  }
+
+  100% {
+    translate: -50% 0;
+    border-radius: 0;
+  }
+}
+
+@keyframes bubble-second-move {
+  20% {
+    translate: -50% 100%;
+  }
+
+  50% {
+    border-radius: 50%;
+  }
+
+  100% {
+    translate: -50% 0;
+    border-radius: 0;
+  }
+}
+
+@keyframes hold {
+  from,
+  to {
+    translate: -50% 0;
+    border-radius: 0;
+  }
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    translate: 0 20px;
+  }
+
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+/* Tablet and mobile navigation */
+
+@media (max-width: 640px) {
+  .nav {
+    min-height: 88px;
+    padding: 16px 20px;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .nav__list {
+    width: 100%;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .nav__link {
+    font-size: clamp(0.75rem, 3vw, 0.9rem);
+  }
+
+  .page__content {
+    padding-top: 150px;
+  }
+}
+
+/* Respect the user's motion preferences */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
