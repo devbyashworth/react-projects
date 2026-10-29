@@ -1,0 +1,252 @@
+:root {
+  --color-muted: #b4b4b4;
+  --color-primary: #242228;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 20px;
+  background: #f5f5f5;
+  background-image: linear-gradient(135deg, #121212, #1b1b1b);
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  background: #fefefe;
+  border-radius: 22px;
+  width: 90vw;
+  max-width: 800px;
+  box-shadow: 0px 20px 54px rgba(0 0 0 / 12%);
+}
+
+.content {
+  width: 50%;
+  padding: 16px 32px;
+}
+
+.logo {
+  height: 24px;
+  margin-bottom: 40px;
+}
+
+.image {
+  width: 50%;
+  align-self: stretch;
+  border-radius: 22px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background: linear-gradient(135deg, #7c5cff, #3b2e7e);
+
+  animation: float 8s ease-in-out infinite;
+}
+
+.image svg {
+  width: 85%;
+  height: 85%;
+}
+
+.blob-path {
+  transform-origin: center;
+  animation: pulse 5s ease-in-out infinite;
+}
+
+/* @keyframes float {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+
+  25% {
+    transform: translateY(-10px) rotate(2deg);
+  }
+
+  50% {
+    transform: translateY(0px) rotate(0deg);
+  }
+
+  75% {
+    transform: translateY(10px) rotate(-2deg);
+  }
+
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+} */
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 0px rgba(255, 255, 255, 0.2));
+  }
+
+  50% {
+    transform: scale(1.08);
+    filter: drop-shadow(0 0 25px rgba(255, 255, 255, 0.4));
+  }
+
+  100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 0px rgba(255, 255, 255, 0.2));
+  }
+}
+
+.image::before {
+  content: "";
+  position: absolute;
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  animation: orbit 12s linear infinite;
+}
+
+@keyframes orbit {
+  0% {
+    transform: translate(-40px, -30px);
+  }
+
+  25% {
+    transform: translate(50px, -20px);
+  }
+
+  50% {
+    transform: translate(40px, 40px);
+  }
+
+  75% {
+    transform: translate(-30px, 20px);
+  }
+
+  100% {
+    transform: translate(-40px, -30px);
+  }
+}
+
+.content > h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.content > h3 {
+  font-size: 14px;
+  font-weight: 400;
+  margin-bottom: 40px;
+  color: var(--color-muted);
+}
+
+.content > form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+input,
+button {
+  height: 52px;
+  border: none;
+  outline: none;
+  padding: 0 16px;
+  font-size: 16px;
+  border-radius: 12px;
+  font-family: "Inter", sans-serif;
+}
+
+form > input {
+  border: 0;
+  width: 100%;
+  color: inherit;
+  margin-bottom: 10px;
+  background: #f5f5f5;
+}
+
+form > input::placeholder {
+  color: var(--color-muted);
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+form a {
+  font-size: 14px;
+  white-space: nowrap;
+  text-decoration: none;
+  color: var(--color-muted);
+}
+
+form > button {
+  border: 0;
+  padding: 0 48px;
+  color: #fefefe;
+  background: var(--color-primary);
+}
+
+p {
+  font-size: 14px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  color: var(--color-muted);
+}
+
+p a {
+  color: var(--color-primary);
+}
+
+@media screen and (width <= 768px) {
+  .card {
+    padding: 12px 12px 0;
+    flex-direction: column-reverse;
+  }
+
+  .image {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+  }
+
+  .card form {
+    width: 100%;
+  }
+
+  .content {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 44px 12vw 38px;
+  }
+
+  form button {
+    width: 100%;
+  }
+
+  .logo {
+    height: 28px;
+  }
+}
+
+@media screen and (width <= 540px) {
+  .image {
+    height: 200px;
+    margin: -48px 24px 0;
+    width: calc(100% - 48px);
+    box-shadow: 0px 20px 50px rgba(0 0 0 / 12%);
+    overflow: hidden;
+  }
+}
